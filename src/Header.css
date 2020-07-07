@@ -1,0 +1,41 @@
+header {
+    margin: 20px 0;
+}
+
+.header-col {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.main-title {
+    margin: 0;
+    text-align: left;
+    font-size: 3em;
+}
+
+.sub-title {
+    text-align: left;
+    font-weight: normal;
+    font-style: oblique;
+    margin: 10px auto;
+}
+
+.github-button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    text-decoration: none;
+    width: auto;
+    height: auto;
+    padding: 3px 10px 3px 5px;
+    color: initial;
+    margin: 12px;
+    border-radius: 4em;
+    background-image: linear-gradient(180deg, #dfdfdf, #b5b6b8 90%);
+    color: #24292e;
+}
+
+.github-button p {
+    margin: 0;
+    display: inline-block;
+}
