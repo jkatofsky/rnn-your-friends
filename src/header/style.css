@@ -1,0 +1,18 @@
+.logo {
+    height: 7em;
+    margin: 20px;
+}
+
+.main-title {
+    margin: 0;
+    text-align: left;
+    font-weight: normal;
+    font-size: 3em;
+}
+
+.sub-title {
+    text-align: left;
+    font-weight: normal;
+    font-style: italic;
+    margin: 0;
+}
