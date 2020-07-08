@@ -4,7 +4,8 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import Grid from '@material-ui/core/Grid';
 import paypal from './paypal.png';
 import bitcoin from './bitcoin.png';
-import Box from '@material-ui/core/Box';
+import ContentBox from '../shared/ContentBox';
+
 
 function GitHubButton(props) {
     return <a className='github-button'
@@ -15,15 +16,14 @@ function GitHubButton(props) {
     </a>
 }
 
-class Footer extends React.Component {
 
-    render() {
+function Footer(props) {
 
-        return <>
-            <Grid container justify="center" alignItems="flex-start" spacing={2} xs={12}>
-                <Grid item sm={4} xs={12}>
-                    <Box border={1} borderRadius={16} borderColor="grey.600">
-                        <h3><u>About Me</u></h3>
+    return <>
+        <Grid container justify="center" alignItems="flex-start" spacing={2} xs={12}>
+            <Grid item sm={4} xs={12}>
+                <ContentBox title="About Me" content={
+                    <>
                         <p>Hi! I'm Josh Katofsky. I'm studying Computer Science, Political Science, and Philosphy at <a href="https://www.mcgill.ca/" target="_blank" rel="noopener noreferrer">McGill University</a> in Montreal, Canada.
                         I built this website during the Summer of 2020 because I thought it would be really funny to mimic my friends. You can take a look at my resumé <a href="https://www.cs.mcgill.ca/~jkatof/" target="_blank" rel="noopener noreferrer">here</a>.</p>
                         <p>Also, if you enjoyed this website and want to buy me a beer - I mean, contribute to server costs - I'm accepting tips.</p>
@@ -36,22 +36,24 @@ class Footer extends React.Component {
                             </a>
                         </Grid>
                         <br />
-                    </Box>
-                </Grid>
-                <Grid item sm={6} xs={12}>
-                    <Box border={1} borderRadius={16} borderColor="grey.600">
-                        <h3><u>About The A.I.</u></h3>
+                    </>
+                } />
+            </Grid>
+            <Grid item sm={6} xs={12}>
+                <ContentBox title="About The A.I." content={
+                    <>
                         <p>I had the idea for this website while reading the astonishingly-lifelike output of <a href="https://openai.com/blog/better-language-models/" target="_blank" rel="noopener noreferrer">OpenAI's GPT-2 model</a>.
                         I realized that the <i>most</i> amusing targets for a text-generating AI would be those we know personally - and to this end, there's wealth of untapped training data in our Macs' iMessage databases.</p>
                         <p>This website does not use GPT - a shame, as GPT provides <a href="https://openai.com/blog/better-language-models/#sample1" target="_blank" rel="noopener noreferrer">incredibly coherent output</a>.
                         Alas, GPT is <i>huge</i> and training it takes hours on beefy GPUs, much less using the starter tier of Google App Engine.</p>
                         <p>RNN Your Friends needs to train a new model for every set of messages uploaded. So, when this web page sends over a batch of messages to my API, it does a few quick training epochs on a <a href="https://en.wikipedia.org/wiki/Recurrent_neural_network" target="_blank" rel="noopener noreferrer">recurrent neural network</a> (hence the site's name). This model is then retained for a period of time, where it can be queried for text.
                         The output you get won't make it in any NLP papers, but it's still lots of fun.</p>
-                    </Box>
-                </Grid>
-                <Grid item sm={10} xs={12}>
-                    <Box border={1} borderRadius={16} borderColor="grey.600">
-                        <h3><u>About The Code</u></h3>
+                    </>
+                } />
+            </Grid>
+            <Grid item sm={10} xs={12}>
+                <ContentBox title="About The Code" content={
+                    <>
                         <Grid container justify="center" alignItems="flex-start">
                             <Grid item xs={7}>
                                 <p>Here's a list of the main technologies I'm using:</p>
@@ -69,16 +71,16 @@ class Footer extends React.Component {
                                 <GitHubButton text="Frontend" link="https://github.com/jkatofsky/rnn-your-friends" />
                                 <GitHubButton text="Backend" link="https://github.com/jkatofsky/textgenrnn-api" />
                             </Grid>
-
                         </Grid>
                         <br />
-                    </Box>
-                </Grid>
+                    </>
+                } />
             </Grid>
-            <br />
-            <br />
-        </>;
-    }
+        </Grid>
+        <br />
+        <br />
+    </>;
 }
+
 
 export default Footer;
