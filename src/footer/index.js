@@ -17,11 +17,7 @@ function GitHubButton(props) {
 
 class Footer extends React.Component {
 
-
-
     render() {
-        //https://blockchain.com/btc/payment_request?address=14FtmEFkey3sYqoaBmbAaw9BvG2va48nep&amount=0.00021605&message=RNN Your Friends tip
-        //https://paypal.me/jkatofsky
 
         return <>
             <Grid container justify="center" alignItems="flex-start" spacing={2} xs={12}>
@@ -29,7 +25,7 @@ class Footer extends React.Component {
                     <Box border={1} borderRadius={16} borderColor="grey.600">
                         <h3><u>About The Dev</u></h3>
                         <p>Hi! I'm Josh Katofsky. I'm studying Computer Science, Political Science, and Philosphy at <a href="https://www.mcgill.ca/" target="_blank" rel="noopener noreferrer">McGill University</a> in Montreal, Canada.
-                        I built this website during the Summer of 2020 because I thought it would be really fun to mimic my friends. You can take a look at my resumé <a href="https://www.cs.mcgill.ca/~jkatof/" target="_blank" rel="noopener noreferrer">here</a>.</p>
+                        I built this website during the Summer of 2020 because I thought it would be really funny to mimic my friends. You can take a look at my resumé <a href="https://www.cs.mcgill.ca/~jkatof/" target="_blank" rel="noopener noreferrer">here</a>.</p>
                         <p>Also, if you enjoyed this website and want to buy me a beer - I mean, contribute to server costs - I'm accepting tips.</p>
                         <Grid container direction="row" justify="space-evenly" alignItems="center">
                             <a href="https://paypal.me/jkatofsky" target="_blank" rel="noopener noreferrer">
@@ -58,14 +54,14 @@ class Footer extends React.Component {
                         <h3><u>About The Code</u></h3>
                         <Grid container justify="center" alignItems="flex-start">
                             <Grid item xs={6}>
-                                <p>I'm hosting both the frontend and API for this website using Google Cloud App Engine. As for the code, here's a list of the main technologies I'm using:</p>
+                                <p>Here's a list of the main technologies I'm using:</p>
 
                                 <ul>
-                                    <li><a href="https://reactjs.org/" target="_blank" rel="noopener noreferrer">React.js</a> (front-end)</li>
-                                    <li><a href="https://material-ui.com/" target="_blank" rel="noopener noreferrer">Material-UI</a> (front-end)</li>
+                                    <li><a href="https://reactjs.org/" target="_blank" rel="noopener noreferrer">React.js</a> (front-end framework)</li>
+                                    <li><a href="https://material-ui.com/" target="_blank" rel="noopener noreferrer">Material-UI</a> (front-end components)</li>
                                     <li><a href="https://github.com/sql-js/sql.js" target="_blank" rel="noopener noreferrer">sql.js</a> (browser-side DB interpreter)</li>
                                     <li><a href="https://github.com/huge-success/sanic" target="_blank" rel="noopener noreferrer">Sanic</a> (web server)</li>
-                                    <li><a href="https://github.com/minimaxir/textgenrnn" target="_blank" rel="noopener noreferrer">textgenrnn</a> (RNN)</li>
+                                    <li><a href="https://github.com/minimaxir/textgenrnn" target="_blank" rel="noopener noreferrer">textgenrnn</a> (text generation)</li>
                                     <li><a href="https://cloud.google.com/appengine" target="_blank" rel="noopener noreferrer">Google App Engine</a> (hosting)</li>
                                 </ul>
                             </Grid>

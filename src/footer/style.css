@@ -45,7 +45,7 @@ ul {
     -webkit-columns: 2;
     -moz-columns: 2;
     margin-block-start: 0;
-    margin-block-end: 0.5em;
+    margin-block-end: 1em;
 }
 
 li {
