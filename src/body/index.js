@@ -32,7 +32,7 @@ class Body extends React.Component {
         const { incompatibleOS, correpondents, selectedCorrespondentID } = this.state;
 
         return <>
-            {incompatibleOS && <div className="incompatible"><ErrorIcon fontSize="large" /><h4>I've detected that you are not on macOS. Unfortunately, this website will not work for you.</h4><br /></div>}
+            {incompatibleOS && <div><ErrorIcon fontSize="large" /><h3>I've detected that you are not on macOS. Unfortunately, this website will not work for you.</h3></div>}
 
             <Grid container justify="center" alignItems="flex-start" spacing={2} xs={12}>
                 <Grid item sm={5} xs={11} style={disableOnTrue(incompatibleOS)}>
