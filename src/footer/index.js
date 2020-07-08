@@ -23,7 +23,7 @@ class Footer extends React.Component {
             <Grid container justify="center" alignItems="flex-start" spacing={2} xs={12}>
                 <Grid item sm={4} xs={12}>
                     <Box border={1} borderRadius={16} borderColor="grey.600">
-                        <h3><u>About The Dev</u></h3>
+                        <h3><u>About Me</u></h3>
                         <p>Hi! I'm Josh Katofsky. I'm studying Computer Science, Political Science, and Philosphy at <a href="https://www.mcgill.ca/" target="_blank" rel="noopener noreferrer">McGill University</a> in Montreal, Canada.
                         I built this website during the Summer of 2020 because I thought it would be really funny to mimic my friends. You can take a look at my resumé <a href="https://www.cs.mcgill.ca/~jkatof/" target="_blank" rel="noopener noreferrer">here</a>.</p>
                         <p>Also, if you enjoyed this website and want to buy me a beer - I mean, contribute to server costs - I'm accepting tips.</p>
@@ -41,21 +41,20 @@ class Footer extends React.Component {
                 <Grid item sm={6} xs={12}>
                     <Box border={1} borderRadius={16} borderColor="grey.600">
                         <h3><u>About The A.I.</u></h3>
-                        <p>I had the idea to train a text model on iMessages while reading about <a href="https://openai.com/blog/better-language-models/" target="_blank" rel="noopener noreferrer">OpenAI's GPT-2 language model</a>.
-                        I realized that there's an untapped wealth of training data living on our Macs' iMessage databases, data which would be create uniquely fun outputs, since we know exactly who it's mimicking.</p>
-                        <p>This website does not use GPT, however. That's a shame, because GPT provides <a href="https://openai.com/blog/better-language-models/#sample1" target="_blank" rel="noopener noreferrer">incredibly coherent output</a>.
-                        Alas, GPT is <i>huge</i>, so while it is possible to pre-train it, bundle it with the server code, and make a web API to query that model, it was not feasible to repeatedly re-train it on the cloud (much less using the starter tier of Google App Engine).</p>
-                        <p>Instead, I'm doing a few quick training epochs on a <a href="https://en.wikipedia.org/wiki/Recurrent_neural_network" target="_blank" rel="noopener noreferrer">recurrent neural network</a> (hence the site's name).
-                        It's not always going to make perfect sense, but it's still lots of fun.</p>
+                        <p>I had the idea for this website while reading the astonishingly-lifelike output of <a href="https://openai.com/blog/better-language-models/" target="_blank" rel="noopener noreferrer">OpenAI's GPT-2 model</a>.
+                        I realized that the <i>most</i> amusing targets for a text-generating AI would be those we know personally - and to this end, there's wealth of untapped training data in our Macs' iMessage databases.</p>
+                        <p>This website does not use GPT - a shame, as GPT provides <a href="https://openai.com/blog/better-language-models/#sample1" target="_blank" rel="noopener noreferrer">incredibly coherent output</a>.
+                        Alas, GPT is <i>huge</i> and training it takes hours on beefy GPUs, much less using the starter tier of Google App Engine.</p>
+                        <p>RNN Your Friends needs to train a new model for every set of messages uploaded. So, when this web page sends over a batch of messages to my API, it does a few quick training epochs on a <a href="https://en.wikipedia.org/wiki/Recurrent_neural_network" target="_blank" rel="noopener noreferrer">recurrent neural network</a> (hence the site's name). This model is then retained for a period of time, where it can be queried for text.
+                        The output you get won't make it in any NLP papers, but it's still lots of fun.</p>
                     </Box>
                 </Grid>
                 <Grid item sm={10} xs={12}>
                     <Box border={1} borderRadius={16} borderColor="grey.600">
                         <h3><u>About The Code</u></h3>
                         <Grid container justify="center" alignItems="flex-start">
-                            <Grid item xs={6}>
+                            <Grid item xs={7}>
                                 <p>Here's a list of the main technologies I'm using:</p>
-
                                 <ul>
                                     <li><a href="https://reactjs.org/" target="_blank" rel="noopener noreferrer">React.js</a> (front-end framework)</li>
                                     <li><a href="https://material-ui.com/" target="_blank" rel="noopener noreferrer">Material-UI</a> (front-end components)</li>
@@ -65,12 +64,14 @@ class Footer extends React.Component {
                                     <li><a href="https://cloud.google.com/appengine" target="_blank" rel="noopener noreferrer">Google App Engine</a> (hosting)</li>
                                 </ul>
                             </Grid>
-                            <Grid item xs={6}>
+                            <Grid item xs={5}>
                                 <p>Have suggestions? Want to make your own fork? Found a bug? Just want to judge my code? Take a look at this project's GitHub repos:</p>
                                 <GitHubButton text="Frontend" link="https://github.com/jkatofsky/rnn-your-friends" />
                                 <GitHubButton text="Backend" link="https://github.com/jkatofsky/textgenrnn-api" />
                             </Grid>
+
                         </Grid>
+                        <br />
                     </Box>
                 </Grid>
             </Grid>
