@@ -21,7 +21,7 @@ function Footer(props) {
 
     return <>
         <Grid container justify="center" alignItems="flex-start" spacing={2} xs={12}>
-            <Grid item sm={4} xs={12}>
+            <Grid item sm={4} xs={11}>
                 <ContentBox title="About Me" content={
                     <>
                         <p>Hi! I'm Josh Katofsky. I'm studying Computer Science, Political Science, and Philosphy at <a href="https://www.mcgill.ca/" target="_blank" rel="noopener noreferrer">McGill University</a> in Montreal, Canada.
@@ -39,7 +39,7 @@ function Footer(props) {
                     </>
                 } />
             </Grid>
-            <Grid item sm={6} xs={12}>
+            <Grid item sm={7} xs={11}>
                 <ContentBox title="About The A.I." content={
                     <>
                         <p>I had the idea for this website while reading the astonishingly-lifelike output of <a href="https://openai.com/blog/better-language-models/" target="_blank" rel="noopener noreferrer">OpenAI's GPT-2 model</a>.
@@ -51,7 +51,7 @@ function Footer(props) {
                     </>
                 } />
             </Grid>
-            <Grid item sm={10} xs={12}>
+            <Grid item xs={11}>
                 <ContentBox title="About The Code" content={
                     <>
                         <Grid container justify="center" alignItems="flex-start">
