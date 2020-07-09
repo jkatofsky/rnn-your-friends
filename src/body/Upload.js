@@ -3,16 +3,7 @@ import Button from '@material-ui/core/Button';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import initSqlJs from "sql.js";
 
-/**
- * sucessful onProcess returns objects like this:
- * { ID (int) : {
- *      name (str),
- *      modelID (str - default null),
- *      messages (str array)
- *      }
- * }
- */
-class Process extends React.Component {
+class Upload extends React.Component {
 
     componentDidMount() {
         //.catch() error here when implementing error codee
@@ -25,12 +16,7 @@ class Process extends React.Component {
         reader.onload = () => {
             var UintArray = new Uint8Array(reader.result);
             const db = new this.SQL.Database(UintArray);
-
-            const correspondents = {};
-            // TOOD: implement the actual processing of the database
-
-            this.props.onProcess(correspondents);
-
+            this.props.onDBUpload(db);
         }
         reader.readAsArrayBuffer(dbFile);
     }
@@ -55,4 +41,4 @@ class Process extends React.Component {
 }
 
 
-export default Process;
+export default Upload;
