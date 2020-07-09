@@ -44,9 +44,14 @@ class Body extends React.Component {
         const { iMessageDB, correpondents, selectedCorrespondentID } = this.state;
 
         return <>
-            {!isMacOs && <div><ErrorIcon fontSize="large" /><h3 className="error-title">You don't appear to be on macOS. Return to this website from a Mac to use it.</h3></div>}
 
-            <Grid container justify="center" alignItems="flex-start" spacing={2} xs={12}>
+            <Grid className="relative-parent" container
+                justify="center" alignItems="flex-start" spacing={2} xs={12}>
+
+                {!isMacOs && <div className="absolute-child">
+                    <ErrorIcon fontSize="large" /><h2 className="error-title">You don't appear to be on macOS. Return to this website from a Mac to use it.</h2>
+                </div>}
+
                 <Grid item sm={5} xs={11}
                     style={disableOnTrue(!isMacOs)}>
                     <ContentBox title="Upload iMessages" content={
