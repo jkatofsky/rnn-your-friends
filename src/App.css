@@ -2,6 +2,13 @@
     text-align: center;
 }
 
+p {
+    text-align: left;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+    padding: 0 20px;
+}
+
 hr {
     border: 1px solid rgb(79, 79, 79);
     margin: 20px 0;

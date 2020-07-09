@@ -55,7 +55,7 @@ function Footer(props) {
                 <ContentBox title="About The Code" content={
                     <>
                         <Grid container justify="center" alignItems="flex-start">
-                            <Grid item xs={7}>
+                            <Grid item sm={7} xs={12}>
                                 <p>Here's a list of the main technologies I'm using:</p>
                                 <ul>
                                     <li><a href="https://reactjs.org/" target="_blank" rel="noopener noreferrer">React.js</a> (front-end framework)</li>
@@ -66,7 +66,7 @@ function Footer(props) {
                                     <li><a href="https://cloud.google.com/appengine" target="_blank" rel="noopener noreferrer">Google App Engine</a> (hosting)</li>
                                 </ul>
                             </Grid>
-                            <Grid item xs={5}>
+                            <Grid item sm={5} xs={12}>
                                 <p>Have suggestions? Want to make your own fork? Found a bug? Just want to judge my code? Take a look at this project's GitHub repos:</p>
                                 <GitHubButton text="Frontend" link="https://github.com/jkatofsky/rnn-your-friends" />
                                 <GitHubButton text="Backend" link="https://github.com/jkatofsky/textgenrnn-api" />
