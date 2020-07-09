@@ -25,7 +25,11 @@ class Upload extends React.Component {
 
     render() {
         return <>
-            <p>First, you have to upload your Mac's local iMessage database. Starting from your Finder home directory, the database can be found at <b>Library &gt; Messages &gt; chat.db</b></p>
+            <p>
+                First, you have to upload your Mac's local iMessage database.
+                It is found at <b>User &gt; Library &gt; Messages &gt; chat.db</b>.
+                Messages that are being stored on iCloud can't be accessed.
+            </p>
             <input
                 accept=".db"
                 style={{ display: 'none' }}
@@ -37,7 +41,10 @@ class Upload extends React.Component {
                 <Button variant="contained" component="span"
                     startIcon={<CloudUploadIcon />}>Upload iMessage DB</Button>
             </label>
-            <p>The only data sent over the internet is the text of a random subset of messages - with no metadata at all. And your messages are soon deleted from the server when you're done with the site.</p>
+            <p>
+                RNN Your Friends doesn't send any sensetive metadata to the server
+                and deletes your messages when done training a model.
+            </p>
         </>;
     }
 }
