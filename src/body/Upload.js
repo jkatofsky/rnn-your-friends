@@ -6,19 +6,21 @@ import initSqlJs from "sql.js";
 class Upload extends React.Component {
 
     componentDidMount() {
-        //.catch() error here when implementing error codee
+        // ERRORS TODO: add .catch() here
         initSqlJs({ locateFile: file => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.3.0/dist/${file}` }).then(SQL => { this.SQL = SQL; });
     }
 
     processDB = () => {
-        const dbFile = document.getElementById('upload-db').files[0];
+        const iMessageDBFile = document.getElementById('upload-db').files[0];
+        // ERRORS TODO: verify  that the file has the right name and metadata
         var reader = new FileReader();
         reader.onload = () => {
             var UintArray = new Uint8Array(reader.result);
-            const db = new this.SQL.Database(UintArray);
-            this.props.onDBUpload(db);
+            const iMessageDB = new this.SQL.Database(UintArray);
+            // ERRORS TODO: verify that the database has the right tables + stuff
+            this.props.oniMessageDBUpload(iMessageDB);
         }
-        reader.readAsArrayBuffer(dbFile);
+        reader.readAsArrayBuffer(iMessageDBFile);
     }
 
     render() {

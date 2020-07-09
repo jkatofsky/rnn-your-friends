@@ -49,13 +49,13 @@ class Body extends React.Component {
             <Grid container justify="center" alignItems="flex-start" spacing={2} xs={12}>
                 <Grid item sm={5} xs={11}
                     style={disableOnTrue(!isMacOs)}>
-                    <ContentBox title="Process Messages" content={
-                        <Upload onProcess={this.onProcess} />
+                    <ContentBox title="Upload iMessages" content={
+                        <Upload oniMessageDBUpload={this.oniMessageDBUpload} />
                     } />
                 </Grid>
                 <Grid item sm={6} xs={11}
                     style={disableOnTrue(!isMacOs || !iMessageDB)}>
-                    <ContentBox title="Train Model" content={
+                    <ContentBox title="Train Models" content={
                         <Train iMessageDB={iMessageDB} oniMessageDBProcess={this.oniMessageDBProcess}
                             onCorrespondentSelect={this.onCorrespondentSelect}
                             onModelTrain={this.onModelTrain} />
