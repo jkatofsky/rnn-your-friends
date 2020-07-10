@@ -20,7 +20,7 @@ class Upload extends React.Component {
         initSqlJs({ locateFile: file => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.3.0/dist/${file}` }).then(SQL => { this.SQL = SQL; });
     }
 
-    processDB = () => {
+    iMessageDBInit = () => {
         this.setState({ loading: true });
         const iMessageDBFile = document.getElementById('upload-db').files[0];
         // ERRORS TODO: verify  that the file has the right name and metadata
@@ -29,7 +29,7 @@ class Upload extends React.Component {
             var UintArray = new Uint8Array(reader.result);
             const iMessageDB = new this.SQL.Database(UintArray);
             // ERRORS TODO: verify that the database has the right tables + stuff
-            this.props.oniMessageDBUpload(iMessageDB);
+            this.props.oniMessageDBInit(iMessageDB);
             this.setState({ loading: false });
         }
         reader.readAsArrayBuffer(iMessageDBFile);
@@ -56,7 +56,7 @@ class Upload extends React.Component {
                     style={{ display: 'none' }}
                     id="upload-db"
                     type="file"
-                    onChange={this.processDB}
+                    onChange={this.iMessageDBInit}
                 />
                 <label htmlFor="upload-db">
                     <Button variant="contained" component="span"

@@ -21,7 +21,7 @@ class Body extends React.Component {
         };
     }
 
-    oniMessageDBUpload = (iMessageDB) => {
+    oniMessageDBInit = (iMessageDB) => {
         this.setState({ iMessageDB: iMessageDB });
     }
 
@@ -54,7 +54,7 @@ class Body extends React.Component {
                 <Grid item sm={5} xs={11}
                     style={disableOnTrue(!isMacOs)}>
                     <ContentBox title="Upload iMessages" content={
-                        <Upload oniMessageDBUpload={this.oniMessageDBUpload} />
+                        <Upload oniMessageDBInit={this.oniMessageDBInit} />
                     } />
                 </Grid>
                 <Grid item sm={6} xs={11}
