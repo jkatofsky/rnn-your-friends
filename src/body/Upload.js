@@ -22,8 +22,9 @@ class Upload extends React.Component {
 
     iMessageDBInit = () => {
         this.setState({ loading: true });
-        const iMessageDBFile = document.getElementById('upload-db').files[0];
-        // ERRORS TODO: verify  that the file has the right name and metadata
+        const iMessageDBFiles = document.getElementById('upload-db').files
+        const iMessageDBFile = iMessageDBFiles[iMessageDBFiles.length - 1];
+        // ERRORS TODO: verify that the file has the right name and metadata
         var reader = new FileReader();
         reader.onload = () => {
             var UintArray = new Uint8Array(reader.result);

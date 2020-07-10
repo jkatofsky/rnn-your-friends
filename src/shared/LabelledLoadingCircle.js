@@ -1,5 +1,4 @@
 import React from 'react';
-import '../App.css';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
 function LabelledLoadingCircle(props) {

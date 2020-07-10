@@ -22,11 +22,18 @@ class Body extends React.Component {
     }
 
     oniMessageDBInit = (iMessageDB) => {
-        this.setState({ iMessageDB: iMessageDB });
+        this.setState({
+            iMessageDB: iMessageDB,
+            correpondents: {},
+            selectedCorrespondentID: null
+        });
     }
 
     oniMessageDBProcess = (correspondents) => {
-        this.setState({ correpondents: correspondents });
+        this.setState({
+            correpondents: correspondents,
+            selectedCorrespondentID: null
+        });
     }
 
     onCorrespondentSelect = (selectedCorrespondentID) => {
