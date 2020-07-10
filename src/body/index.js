@@ -40,7 +40,6 @@ class Body extends React.Component {
     }
 
     render() {
-
         const { iMessageDB, correpondents, selectedCorrespondentID } = this.state;
 
         return <>

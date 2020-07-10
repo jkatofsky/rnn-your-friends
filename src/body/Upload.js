@@ -2,8 +2,18 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import initSqlJs from "sql.js";
+import { disableOnTrue } from '../utils/utils';
+import LabelledLoadingCircle from '../shared/LabelledLoadingCircle';
+import '../App.css';
 
 class Upload extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            loading: false
+        }
+    }
 
     componentDidMount() {
         // ERRORS TODO: add .catch() here
@@ -11,6 +21,7 @@ class Upload extends React.Component {
     }
 
     processDB = () => {
+        this.setState({ loading: true });
         const iMessageDBFile = document.getElementById('upload-db').files[0];
         // ERRORS TODO: verify  that the file has the right name and metadata
         var reader = new FileReader();
@@ -19,33 +30,44 @@ class Upload extends React.Component {
             const iMessageDB = new this.SQL.Database(UintArray);
             // ERRORS TODO: verify that the database has the right tables + stuff
             this.props.oniMessageDBUpload(iMessageDB);
+            this.setState({ loading: false });
         }
         reader.readAsArrayBuffer(iMessageDBFile);
     }
 
     render() {
-        return <>
-            <p>
-                First, you have to upload your Mac's local iMessage database.
+        const { loading } = this.state;
+
+        return <div className="relative-parent">
+
+            {loading &&
+                <div className="absolute-child">
+                    <LabelledLoadingCircle label="Initializing database..." />
+                </div>}
+
+            <div style={disableOnTrue(loading)} >
+                <p>
+                    First, you have to upload your Mac's local iMessage database.
                 It is found at <b>User &gt; Library &gt; Messages &gt; chat.db</b>.
                 Messages that are being stored on iCloud can't be accessed.
-            </p>
-            <input
-                accept=".db"
-                style={{ display: 'none' }}
-                id="upload-db"
-                type="file"
-                onChange={this.processDB}
-            />
-            <label htmlFor="upload-db">
-                <Button variant="contained" component="span"
-                    startIcon={<CloudUploadIcon />}>Upload iMessage DB</Button>
-            </label>
-            <p>
-                RNN Your Friends doesn't send any sensetive metadata to the server
-                and deletes your messages when done training a model.
-            </p>
-        </>;
+                </p>
+                <input
+                    accept=".db"
+                    style={{ display: 'none' }}
+                    id="upload-db"
+                    type="file"
+                    onChange={this.processDB}
+                />
+                <label htmlFor="upload-db">
+                    <Button variant="contained" component="span"
+                        startIcon={<CloudUploadIcon />}>Upload iMessage DB</Button>
+                </label>
+                <p>
+                    RNN Your Friends doesn't send any sensetive metadata to the server
+                    and deletes your messages when done training a model.
+                </p>
+            </div>
+        </div>;
     }
 }
 
