@@ -1,5 +1,6 @@
 import React from 'react';
 import LabelledLoadingCircle from '../shared/LabelledLoadingCircle';
+import { disableOnTrue } from '../utils/utils';
 
 class Train extends React.Component {
 
@@ -50,6 +51,10 @@ class Train extends React.Component {
                 <div className="absolute-child">
                     <LabelledLoadingCircle label={loadingLabel} />
                 </div>}
+
+            <div style={disableOnTrue(loading)} >
+
+            </div>
         </div>
     }
 
