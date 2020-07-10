@@ -16,38 +16,38 @@ class Body extends React.Component {
         super(props);
         this.state = {
             iMessageDB: null,
-            correpondents: {}, //{id: {name, modelID, profile pic from messages?}}
-            selectedCorrespondentID: null
+            handles: {}, //{id: {name, modelID, profile pic from messages?}}
+            selectedHandleID: null
         };
     }
 
     oniMessageDBInit = (iMessageDB) => {
         this.setState({
             iMessageDB: iMessageDB,
-            correpondents: {},
-            selectedCorrespondentID: null
+            handles: {},
+            selectedHandleID: null
         });
     }
 
-    oniMessageDBProcess = (correspondents) => {
+    oniMessageDBProcess = (handles) => {
         this.setState({
-            correpondents: correspondents,
-            selectedCorrespondentID: null
+            handles: handles,
+            selectedHandleID: null
         });
     }
 
-    onCorrespondentSelect = (selectedCorrespondentID) => {
-        this.setState({ selectedCorrespondentID: selectedCorrespondentID });
+    onHandleSelect = (handleID) => {
+        this.setState({ selectedHandleID: handleID });
     }
 
-    onModelTrain = (trainedCorrespondentID, modelID) => {
-        let { correpondents } = this.state;
-        correpondents[trainedCorrespondentID].modelID = modelID;
-        this.setState({ correspondents: correpondents });
+    onModelTrain = (handleID, modelID) => {
+        let { handles } = this.state;
+        handles[handleID].modelID = modelID;
+        this.setState({ handles: handles });
     }
 
     render() {
-        const { iMessageDB, correpondents, selectedCorrespondentID } = this.state;
+        const { iMessageDB, handles, selectedHandleID } = this.state;
 
         return <>
 
@@ -67,17 +67,18 @@ class Body extends React.Component {
                 <Grid item sm={6} xs={11}
                     style={disableOnTrue(!isMacOs || !iMessageDB)}>
                     <ContentBox title="Train Models" content={
-                        <Train iMessageDB={iMessageDB} oniMessageDBProcess={this.oniMessageDBProcess}
-                            onCorrespondentSelect={this.onCorrespondentSelect}
+                        <Train iMessageDB={iMessageDB} handles={handles}
+                            oniMessageDBProcess={this.oniMessageDBProcess}
+                            onHandleSelect={this.onHandleSelect}
                             onModelTrain={this.onModelTrain} />
                     } />
                 </Grid>
                 <Grid item xs={11}
                     style={disableOnTrue(!isMacOs || !iMessageDB
-                        || Object.keys(correpondents).length === 0
-                        || correpondents[selectedCorrespondentID].model === null)}>
+                        || Object.keys(handles).length === 0
+                        || handles[selectedHandleID].model === null)}>
                     <ContentBox title="Generate Text" content={
-                        <Generate selectedCorrespondent={correpondents[selectedCorrespondentID]} />
+                        <Generate selectedHandle={handles[selectedHandleID]} />
                     } />
                 </Grid>
 

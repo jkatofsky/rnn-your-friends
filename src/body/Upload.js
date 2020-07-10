@@ -17,7 +17,10 @@ class Upload extends React.Component {
 
     componentDidMount() {
         // ERRORS TODO: add .catch() here
-        initSqlJs({ locateFile: file => `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.3.0/dist/${file}` }).then(SQL => { this.SQL = SQL; });
+        initSqlJs({
+            locateFile: file =>
+                `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.3.0/dist/${file}`
+        }).then(SQL => { this.SQL = SQL; });
     }
 
     iMessageDBInit = () => {
