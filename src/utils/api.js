@@ -23,5 +23,3 @@ export default async function postJSON(endpoint, data) {
         return null;
     }
 }
-
-postJSON('train', { training_strings: ['foo', 'bar', 'baz'] });
