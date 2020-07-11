@@ -13,7 +13,7 @@ class Train extends React.Component {
         }
     }
 
-    componentDidUpdate = (prevProps) => {
+    componentDidUpdate(prevProps) {
         if (this.props.iMessageDB !== prevProps.iMessageDB) {
             this.iMessageDBProcess(this.props.iMessageDB);
         }
