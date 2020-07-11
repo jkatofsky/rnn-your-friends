@@ -16,7 +16,7 @@ class Body extends React.Component {
         super(props);
         this.state = {
             iMessageDB: null,
-            handles: {}, //{id: {name, modelID, profile pic from messages?}}
+            handles: [], //{id: {name, modelID, profile pic from messages?}}
             selectedHandleID: null
         };
     }
@@ -24,7 +24,7 @@ class Body extends React.Component {
     oniMessageDBInit = (iMessageDB) => {
         this.setState({
             iMessageDB: iMessageDB,
-            handles: {},
+            handles: [],
             selectedHandleID: null
         });
     }

@@ -16,7 +16,6 @@ class Upload extends React.Component {
     }
 
     componentDidMount() {
-        // ERRORS TODO: add .catch() here
         initSqlJs({
             locateFile: file =>
                 `https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.3.0/dist/${file}`
@@ -27,12 +26,10 @@ class Upload extends React.Component {
         this.setState({ loading: true });
         const iMessageDBFiles = document.getElementById('upload-db').files
         const iMessageDBFile = iMessageDBFiles[iMessageDBFiles.length - 1];
-        // ERRORS TODO: verify that the file has the right name and metadata
         var reader = new FileReader();
         reader.onload = () => {
             var UintArray = new Uint8Array(reader.result);
             const iMessageDB = new this.SQL.Database(UintArray);
-            // ERRORS TODO: verify that the database has the right tables + stuff
             this.props.oniMessageDBInit(iMessageDB);
             this.setState({ loading: false });
         }
