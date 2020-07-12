@@ -1,7 +1,13 @@
+footer p {
+    font-size: 16px;
+}
+
+
 h4 {
     margin-block-start: 0.5em;
     margin-block-end: 0;
 }
+
 
 .github-button {
     -webkit-appearance: button;

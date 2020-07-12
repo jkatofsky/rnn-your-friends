@@ -51,37 +51,37 @@ class Body extends React.Component {
 
         return <>
 
-            <Grid className="relative-parent" container
-                justify="center" alignItems="flex-start" spacing={2} xs={12}>
+            <Grid container justify="center" alignItems="flex-start" xs={12}>
+                <Grid container justify="center" alignItems="flex-start" spacing={2} xs={12} md={11} lg={10}>
 
-                {!isMacOs && <div className="absolute-child">
-                    <ErrorIcon fontSize="large" /><h2 className="error-title">You don't appear to be on macOS. Return to this website from a Mac to use it.</h2>
-                </div>}
+                    {!isMacOs && <div className="absolute-child">
+                        <ErrorIcon fontSize="large" /><h2 className="error-title">You don't appear to be on macOS. Return to this website from a Mac to use it.</h2>
+                    </div>}
 
-                <Grid item sm={5} xs={11}
-                    style={disableOnTrue(!isMacOs)}>
-                    <ContentBox title="Upload iMessages" content={
-                        <Upload oniMessageDBInit={this.oniMessageDBInit} />
-                    } />
+                    <Grid item sm={5} xs={11}
+                        style={disableOnTrue(!isMacOs)}>
+                        <ContentBox title="Upload iMessages" content={
+                            <Upload oniMessageDBInit={this.oniMessageDBInit} />
+                        } />
+                    </Grid>
+                    <Grid item sm={6} xs={11}
+                        style={disableOnTrue(!isMacOs || !iMessageDB)}>
+                        <ContentBox title="Train Models" content={
+                            <Train iMessageDB={iMessageDB} handles={handles}
+                                oniMessageDBProcess={this.oniMessageDBProcess}
+                                onHandleSelect={this.onHandleSelect}
+                                onModelTrain={this.onModelTrain} />
+                        } />
+                    </Grid>
+                    <Grid item xs={11}
+                        style={disableOnTrue(!isMacOs || !iMessageDB
+                            || Object.keys(handles).length === 0
+                            || handles[selectedHandleID].model === null)}>
+                        <ContentBox title="Generate Text" content={
+                            <Generate selectedHandle={handles[selectedHandleID]} />
+                        } />
+                    </Grid>
                 </Grid>
-                <Grid item sm={6} xs={11}
-                    style={disableOnTrue(!isMacOs || !iMessageDB)}>
-                    <ContentBox title="Train Models" content={
-                        <Train iMessageDB={iMessageDB} handles={handles}
-                            oniMessageDBProcess={this.oniMessageDBProcess}
-                            onHandleSelect={this.onHandleSelect}
-                            onModelTrain={this.onModelTrain} />
-                    } />
-                </Grid>
-                <Grid item xs={11}
-                    style={disableOnTrue(!isMacOs || !iMessageDB
-                        || Object.keys(handles).length === 0
-                        || handles[selectedHandleID].model === null)}>
-                    <ContentBox title="Generate Text" content={
-                        <Generate selectedHandle={handles[selectedHandleID]} />
-                    } />
-                </Grid>
-
             </Grid>
         </>
     }
