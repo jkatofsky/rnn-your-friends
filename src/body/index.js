@@ -59,7 +59,9 @@ class Body extends React.Component {
                     <Grid item sm={6} xs={11}
                         style={disableOnTrue(!isMacOs || !iMessageDB)}>
                         <ContentBox title="Train Models" content={
-                            <Train iMessageDB={iMessageDB} handles={handles}
+                            <Train iMessageDB={iMessageDB}
+                                handles={handles}
+                                selectedHandleID={selectedHandleID}
                                 onHandleSelect={this.onHandleSelect}
                                 onModelTrain={this.onModelTrain} />
                         } />
