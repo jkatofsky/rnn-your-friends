@@ -15,13 +15,14 @@ class Train extends React.Component {
 
     componentDidUpdate(prevProps) {
         if (this.props.iMessageDB !== prevProps.iMessageDB) {
-            this.iMessageDBProcess(this.props.iMessageDB);
+            this.iMessageDBProcess();
         }
     }
 
-    iMessageDBProcess = (iMessageDB) => {
+    iMessageDBProcess = () => {
         this.setState({ loading: true, loadingLabel: 'Processing database...' });
-        const handles = {};
+        const { iMessageDB } = this.props;
+        const handles = [];
         // TODO: process the database to a list of handle objects
         this.props.oniMessageDBProcess(handles);
         this.setState({ loading: false, loadingLabel: '' });
@@ -31,8 +32,9 @@ class Train extends React.Component {
         this.props.onHandleSelect(handleID);
     }
 
-    modelTrain = async (iMessageDB, handleID) => {
+    modelTrain = async (handleID) => {
         this.setState({ loading: true, loadingLabel: 'Training model. This may take a bit...' });
+        const { iMessageDB } = this.props;
         let trainingStrings = [];
         // TODO: get the training strings
         const trainingResponse = await postJSON('train', { training_strings: trainingStrings })
@@ -42,7 +44,7 @@ class Train extends React.Component {
     }
 
     render() {
-        const { iMessageDB, handles } = this.props;
+        const { handles } = this.props;
         const { loading, loadingLabel } = this.state;
 
         // TODO: render component
