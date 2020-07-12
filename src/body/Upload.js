@@ -4,7 +4,6 @@ import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import initSqlJs from "sql.js";
 import { disableOnTrue } from '../utils/utils';
 import LabelledLoadingCircle from '../shared/LabelledLoadingCircle';
-import '../App.css';
 
 class Upload extends React.Component {
 
@@ -22,7 +21,7 @@ class Upload extends React.Component {
         }).then(SQL => { this.SQL = SQL; });
     }
 
-    iMessageDBInit = () => {
+    iMessageDBProcess = () => {
         this.setState({ loading: true });
         const iMessageDBFiles = document.getElementById('upload-db').files
         const iMessageDBFile = iMessageDBFiles[iMessageDBFiles.length - 1];
@@ -30,7 +29,15 @@ class Upload extends React.Component {
         reader.onload = () => {
             var UintArray = new Uint8Array(reader.result);
             const iMessageDB = new this.SQL.Database(UintArray);
-            this.props.oniMessageDBInit(iMessageDB);
+            const handleTable = iMessageDB.exec("select ROWID, id from handle");
+            const handles = {};
+            handleTable[0].values.forEach(row => {
+                handles[row[0]] = {
+                    name: row[1],
+                    modelID: null
+                }
+            });
+            this.props.oniMessageDBProcess(iMessageDB, handles);
             this.setState({ loading: false });
         }
         reader.readAsArrayBuffer(iMessageDBFile);
@@ -43,7 +50,7 @@ class Upload extends React.Component {
 
             {loading &&
                 <div className="absolute-child">
-                    <LabelledLoadingCircle label="Initializing database..." />
+                    <LabelledLoadingCircle label="Processing database..." />
                 </div>}
 
             <div style={disableOnTrue(loading)} >
@@ -57,7 +64,7 @@ class Upload extends React.Component {
                     style={{ display: 'none' }}
                     id="upload-db"
                     type="file"
-                    onChange={this.iMessageDBInit}
+                    onChange={this.iMessageDBProcess}
                 />
                 <label htmlFor="upload-db">
                     <Button variant="contained" component="span"

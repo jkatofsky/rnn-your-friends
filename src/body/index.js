@@ -1,6 +1,5 @@
 import React from 'react';
 import './style.css';
-import '../App.css';
 import { isMacOs } from "react-device-detect";
 import Grid from '@material-ui/core/Grid';
 import ContentBox from '../shared/ContentBox';
@@ -16,21 +15,14 @@ class Body extends React.Component {
         super(props);
         this.state = {
             iMessageDB: null,
-            handles: [], //{id: {name, modelID, profile pic from messages?}}
+            handles: {},
             selectedHandleID: null
         };
     }
 
-    oniMessageDBInit = (iMessageDB) => {
+    oniMessageDBProcess = (iMessageDB, handles) => {
         this.setState({
             iMessageDB: iMessageDB,
-            handles: [],
-            selectedHandleID: null
-        });
-    }
-
-    oniMessageDBProcess = (handles) => {
-        this.setState({
             handles: handles,
             selectedHandleID: null
         });
@@ -61,14 +53,13 @@ class Body extends React.Component {
                     <Grid item sm={5} xs={11}
                         style={disableOnTrue(!isMacOs)}>
                         <ContentBox title="Upload iMessages" content={
-                            <Upload oniMessageDBInit={this.oniMessageDBInit} />
+                            <Upload oniMessageDBProcess={this.oniMessageDBProcess} />
                         } />
                     </Grid>
                     <Grid item sm={6} xs={11}
                         style={disableOnTrue(!isMacOs || !iMessageDB)}>
                         <ContentBox title="Train Models" content={
                             <Train iMessageDB={iMessageDB} handles={handles}
-                                oniMessageDBProcess={this.oniMessageDBProcess}
                                 onHandleSelect={this.onHandleSelect}
                                 onModelTrain={this.onModelTrain} />
                         } />
@@ -76,6 +67,7 @@ class Body extends React.Component {
                     <Grid item xs={11}
                         style={disableOnTrue(!isMacOs || !iMessageDB
                             || Object.keys(handles).length === 0
+                            || !selectedHandleID
                             || handles[selectedHandleID].model === null)}>
                         <ContentBox title="Generate Text" content={
                             <Generate selectedHandle={handles[selectedHandleID]} />

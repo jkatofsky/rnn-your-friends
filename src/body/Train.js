@@ -8,24 +8,8 @@ class Train extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            loading: false,
-            loadingLabel: ''
+            loading: false
         }
-    }
-
-    componentDidUpdate(prevProps) {
-        if (this.props.iMessageDB !== prevProps.iMessageDB) {
-            this.iMessageDBProcess();
-        }
-    }
-
-    iMessageDBProcess = () => {
-        this.setState({ loading: true, loadingLabel: 'Processing database...' });
-        const { iMessageDB } = this.props;
-        const handles = [];
-        // TODO: process the database to a list of handle objects
-        this.props.oniMessageDBProcess(handles);
-        this.setState({ loading: false, loadingLabel: '' });
     }
 
     handleSelect = (handleID) => {
@@ -33,19 +17,19 @@ class Train extends React.Component {
     }
 
     modelTrain = async (handleID) => {
-        this.setState({ loading: true, loadingLabel: 'Training model. This may take a bit...' });
+        this.setState({ loading: true });
         const { iMessageDB } = this.props;
         let trainingStrings = [];
         // TODO: get the training strings
         const trainingResponse = await postJSON('train', { training_strings: trainingStrings })
         let modelID = trainingResponse['model_id'];
         this.props.onModelTrain(handleID, modelID);
-        this.setState({ loading: false, loadingLabel: '' });
+        this.setState({ loading: false });
     }
 
     render() {
         const { handles } = this.props;
-        const { loading, loadingLabel } = this.state;
+        const { loading } = this.state;
 
         // TODO: render component
 
@@ -53,7 +37,7 @@ class Train extends React.Component {
 
             {loading &&
                 <div className="absolute-child">
-                    <LabelledLoadingCircle label={loadingLabel} />
+                    <LabelledLoadingCircle label="Training model. This may take a bit..." />
                 </div>}
 
             <div style={disableOnTrue(loading)} >
