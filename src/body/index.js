@@ -41,6 +41,13 @@ class Body extends React.Component {
     render() {
         const { iMessageDB, handles, selectedHandleID } = this.state;
 
+        const uploadDisabled = !isMacOs;
+        const trainDisabled = uploadDisabled || !iMessageDB;
+        const generateDisabled = trainDisabled
+            || Object.keys(handles).length === 0
+            || !selectedHandleID
+            || handles[selectedHandleID].model === null;
+
         return <>
 
             <Grid container justify="center" alignItems="flex-start" xs={12}>
@@ -51,13 +58,13 @@ class Body extends React.Component {
                     </div>}
 
                     <Grid item sm={5} xs={11}
-                        style={disableOnTrue(!isMacOs)}>
+                        style={disableOnTrue(uploadDisabled)}>
                         <ContentBox title="Upload iMessages" content={
                             <Upload oniMessageDBProcess={this.oniMessageDBProcess} />
                         } />
                     </Grid>
                     <Grid item sm={6} xs={11}
-                        style={disableOnTrue(!isMacOs || !iMessageDB)}>
+                        style={disableOnTrue(trainDisabled)}>
                         <ContentBox title="Train Models" content={
                             <Train iMessageDB={iMessageDB}
                                 handles={handles}
@@ -67,10 +74,7 @@ class Body extends React.Component {
                         } />
                     </Grid>
                     <Grid item xs={11}
-                        style={disableOnTrue(!isMacOs || !iMessageDB
-                            || Object.keys(handles).length === 0
-                            || !selectedHandleID
-                            || handles[selectedHandleID].model === null)}>
+                        style={disableOnTrue(generateDisabled)}>
                         <ContentBox title="Generate Text" content={
                             <Generate selectedHandle={handles[selectedHandleID]} />
                         } />
