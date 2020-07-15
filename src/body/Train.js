@@ -1,6 +1,6 @@
 import React from 'react';
 import LabelledLoadingCircle from '../shared/LabelledLoadingCircle';
-import { disableOnTrue } from '../utils/utils';
+import { dimOnTrue, disableOnTrue } from '../utils/utils';
 import postJSON from '../utils/api';
 import Button from '@material-ui/core/Button';
 import TimelineIcon from '@material-ui/icons/Timeline';
@@ -30,7 +30,7 @@ class Train extends React.Component {
     }
 
     render() {
-        const { handles, selectedHandleID } = this.props;
+        const { disabled, handles, selectedHandleID } = this.props;
         const { loading } = this.state;
 
         return <div className="relative-parent">
@@ -40,12 +40,12 @@ class Train extends React.Component {
                     <LabelledLoadingCircle label="Training model. This may take a bit..." />
                 </div>}
 
-            <div style={disableOnTrue(loading)} >
+            <div style={dimOnTrue(loading)} >
                 <p>
                     Next, select who you wish to train a network on.
                 </p>
                 {/* TODO: render two-column list of select-able handles*/}
-                <Button variant="contained" component="span"
+                <Button variant="contained" component="span" style={disableOnTrue(disabled)}
                     startIcon={<TimelineIcon />}>Train Model On Selected Person</Button>
                 <p>Unfortunately, contact names are  not included in the DB. It is reccomended to search your contacts for the desired person <i>then</i> find their number or email in this list.</p>
             </div>

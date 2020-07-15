@@ -1,6 +1,6 @@
 import React from 'react';
 import LabelledLoadingCircle from '../shared/LabelledLoadingCircle';
-import { disableOnTrue } from '../utils/utils';
+import { dimOnTrue } from '../utils/utils';
 import postJSON from '../utils/api'
 
 class Generate extends React.Component {
@@ -26,7 +26,7 @@ class Generate extends React.Component {
 
     render() {
 
-        const { handle } = this.props;
+        const { disabled, handle } = this.props;
         const { loading } = this.state;
 
         //TODO: render component
@@ -38,7 +38,7 @@ class Generate extends React.Component {
                     <LabelledLoadingCircle label='Generating text...' />
                 </div>}
 
-            <div style={disableOnTrue(loading)} >
+            <div style={dimOnTrue(loading)} >
 
             </div>
         </div>

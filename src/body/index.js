@@ -7,7 +7,7 @@ import ErrorIcon from '@material-ui/icons/Error';
 import Upload from './Upload';
 import Train from './Train';
 import Generate from './Generate';
-import { disableOnTrue } from '../utils/utils';
+import { dimOnTrue } from '../utils/utils';
 
 class Body extends React.Component {
 
@@ -58,15 +58,17 @@ class Body extends React.Component {
                     </div>}
 
                     <Grid item sm={5} xs={11}
-                        style={disableOnTrue(uploadDisabled)}>
+                        style={dimOnTrue(uploadDisabled)}>
                         <ContentBox title="Upload iMessages" content={
-                            <Upload oniMessageDBProcess={this.oniMessageDBProcess} />
+                            <Upload disabled={uploadDisabled}
+                                oniMessageDBProcess={this.oniMessageDBProcess} />
                         } />
                     </Grid>
                     <Grid item sm={6} xs={11}
-                        style={disableOnTrue(trainDisabled)}>
+                        style={dimOnTrue(trainDisabled)}>
                         <ContentBox title="Train Models" content={
-                            <Train iMessageDB={iMessageDB}
+                            <Train disabled={trainDisabled}
+                                iMessageDB={iMessageDB}
                                 handles={handles}
                                 selectedHandleID={selectedHandleID}
                                 onHandleSelect={this.onHandleSelect}
@@ -74,9 +76,10 @@ class Body extends React.Component {
                         } />
                     </Grid>
                     <Grid item xs={11}
-                        style={disableOnTrue(generateDisabled)}>
+                        style={dimOnTrue(generateDisabled)}>
                         <ContentBox title="Generate Text" content={
-                            <Generate selectedHandle={handles[selectedHandleID]} />
+                            <Generate disabled={generateDisabled}
+                                selectedHandle={handles[selectedHandleID]} />
                         } />
                     </Grid>
                 </Grid>

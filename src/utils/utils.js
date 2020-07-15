@@ -1,6 +1,11 @@
-export const disableOnTrue = (flag) => {
+export const dimOnTrue = (flag) => {
     return {
         opacity: flag ? 0.15 : 1,
-        pointerEvents: flag ? "none" : "initial"
+    }
+}
+
+export const disableOnTrue = (flag) => {
+    return {
+        pointerEvents: flag ? 'none' : 'initial'
     }
 }

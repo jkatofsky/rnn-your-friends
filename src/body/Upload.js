@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import initSqlJs from "sql.js";
-import { disableOnTrue } from '../utils/utils';
+import { dimOnTrue, disableOnTrue } from '../utils/utils';
 import LabelledLoadingCircle from '../shared/LabelledLoadingCircle';
 
 class Upload extends React.Component {
@@ -44,6 +44,7 @@ class Upload extends React.Component {
     }
 
     render() {
+        const { disabled } = this.props;
         const { loading } = this.state;
 
         return <div className="relative-parent">
@@ -53,7 +54,7 @@ class Upload extends React.Component {
                     <LabelledLoadingCircle label="Processing database..." />
                 </div>}
 
-            <div style={disableOnTrue(loading)} >
+            <div style={dimOnTrue(loading)} >
                 <p>
                     First, you have to upload your Mac's local iMessage database.
                 It is found at <b>User &gt; Library &gt; Messages &gt; chat.db</b>.
@@ -67,7 +68,7 @@ class Upload extends React.Component {
                     onChange={this.iMessageDBProcess}
                 />
                 <label htmlFor="upload-db">
-                    <Button variant="contained" component="span"
+                    <Button variant="contained" component="span" style={disableOnTrue(disabled)}
                         startIcon={<CloudUploadIcon />}>Upload iMessage DB</Button>
                 </label>
                 <p>
