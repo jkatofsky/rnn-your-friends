@@ -68,7 +68,7 @@ class Upload extends React.Component {
                     onChange={this.iMessageDBProcess}
                 />
                 <label htmlFor="upload-db">
-                    <Button variant="contained" component="span" style={disableOnTrue(disabled)}
+                    <Button variant="contained" component="span" style={disableOnTrue(disabled || loading)}
                         startIcon={<CloudUploadIcon />}>Upload iMessage DB</Button>
                 </label>
                 <p>
