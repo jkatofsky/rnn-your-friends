@@ -18,14 +18,14 @@ class Train extends React.Component {
         this.props.onHandleSelect(handleID);
     }
 
-    modelTrain = async (handleID) => {
+    modelTrain = async () => {
         this.setState({ loading: true });
-        const { iMessageDB } = this.props;
+        const { selectedHandleID, iMessageDB } = this.props;
         let trainingStrings = [];
         // TODO: get the training strings
         const trainingResponse = await postJSON('train', { training_strings: trainingStrings })
-        let modelID = trainingResponse['model_id'];
-        this.props.onModelTrain(handleID, modelID);
+        const modelID = trainingResponse['model_id'];
+        this.props.onModelTrain(selectedHandleID, modelID);
         this.setState({ loading: false });
     }
 
@@ -37,7 +37,7 @@ class Train extends React.Component {
 
             {loading &&
                 <div className="absolute-child">
-                    <LabelledLoadingCircle label="Training model. This may take a bit..." />
+                    <LabelledLoadingCircle label="Training model. This may take a few minutes..." />
                 </div>}
 
             <div style={dimOnTrue(loading)} >

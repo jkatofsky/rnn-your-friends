@@ -13,12 +13,13 @@ class Generate extends React.Component {
         }
     }
 
-    textGenerate = async (modelID) => {
+    textGenerate = async () => {
         this.setState({ loading: true });
+        const { handle } = this.props;
         let options = {};
         // TODO: get options from options components
         const generateResponse = await postJSON('generate', {
-            model_id: modelID,
+            model_id: handle.modelID,
             options: options
         });
         this.setState({ loading: false, output: generateResponse['output'] });
@@ -27,7 +28,7 @@ class Generate extends React.Component {
     render() {
 
         const { disabled, handle } = this.props;
-        const { loading } = this.state;
+        const { loading, output } = this.state;
 
         //TODO: render component
 
