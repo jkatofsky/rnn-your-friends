@@ -24,7 +24,8 @@ function Footer(props) {
             <Grid container justify="center" alignItems="flex-start" xs={12}>
                 <Grid container justify="center" alignItems="flex-start" spacing={2} xs={12} md={11} lg={10}>
                     <Grid item sm={4} xs={11}>
-                        <ContentBox title="About Me">
+                        <ContentBox>
+                            <h4 ><u>About Me</u></h4>
                             <p>Hi! I'm Josh Katofsky. I'm studying Computer Science, Political Science, and Philosphy at <a href="https://www.mcgill.ca/" target="_blank" rel="noopener noreferrer">McGill University</a> in Montreal, Canada.
                         I built this website during the Summer of 2020 because I thought it would be really funny to mimic my friends. You can take a look at my resumé <a href="https://www.cs.mcgill.ca/~jkatof/" target="_blank" rel="noopener noreferrer">here</a>.</p>
                             <p>Also, if you enjoyed this website and want to buy me a beer - I mean, contribute to server costs - I'm accepting tips.</p>
@@ -40,7 +41,8 @@ function Footer(props) {
                         </ContentBox>
                     </Grid>
                     <Grid item sm={7} xs={11}>
-                        <ContentBox title="About The A.I.">
+                        <ContentBox>
+                            <h4 ><u>About The A.I.</u></h4>
                             <p>I had the idea for this website while reading the astonishingly-lifelike output of <a href="https://openai.com/blog/better-language-models/" target="_blank" rel="noopener noreferrer">OpenAI's GPT-2 model</a>.
                         I realized that the <i>most</i> amusing targets for a text-generating AI would be those we know personally - and to this end, there's wealth of untapped training data in our Macs' iMessage databases.</p>
                             <p>This website does not use GPT - a shame, as GPT provides <a href="https://openai.com/blog/better-language-models/#sample1" target="_blank" rel="noopener noreferrer">incredibly coherent output</a>.
@@ -50,7 +52,8 @@ function Footer(props) {
                         </ContentBox>
                     </Grid>
                     <Grid item xs={11}>
-                        <ContentBox title="About The Code">
+                        <ContentBox>
+                            <h4 ><u>About The Code</u></h4>
                             <Grid container justify="center" alignItems="flex-start">
                                 <Grid item sm={7} xs={12}>
                                     <p>Here's a list of the main technologies I'm using:</p>

@@ -40,7 +40,7 @@ class Generate extends React.Component {
                 </div>}
 
             <div style={dimOnTrue(loading)} >
-
+                <h3 ><u>Step 3: Generate Text</u></h3>
             </div>
         </div>
     }

@@ -54,6 +54,7 @@ class Upload extends React.Component {
                 </div>}
 
             <div style={dimOnTrue(loading)} >
+                <h3 ><u>Step 1: Upload iMessages</u></h3>
                 <p>
                     First, you have to upload your Mac's local iMessage database.
                 It is found at <b>User &gt; Library &gt; Messages &gt; chat.db</b>.
