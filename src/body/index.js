@@ -41,46 +41,33 @@ class Body extends React.Component {
     render() {
         const { iMessageDB, handles, selectedHandleID } = this.state;
 
-        const uploadDisabled = !isMacOs;
-        const trainDisabled = uploadDisabled || !iMessageDB;
-        const generateDisabled = trainDisabled
-            || Object.keys(handles).length === 0
-            || !selectedHandleID
-            || handles[selectedHandleID].model === null;
-
         return <>
-
             <Grid container justify="center" alignItems="flex-start" xs={12}>
-                <Grid container justify="center" alignItems="flex-start" spacing={2} xs={12} md={11} lg={10}>
 
-                    {!isMacOs && <div className="absolute-child">
-                        <ErrorIcon fontSize="large" /><h2 className="error-title">You don't appear to be on macOS. Return to this website from a Mac to use it.</h2>
-                    </div>}
+                {!isMacOs && <div className="absolute-child">
+                    <ErrorIcon fontSize="large" /><h2 className="error-title">You don't appear to be on macOS. Return to this website from a Mac to use it.</h2>
+                </div>}
 
-                    <Grid item sm={5} xs={11}
-                        style={dimOnTrue(uploadDisabled)}>
-                        <ContentBox title="Upload iMessages" content={
-                            <Upload disabled={uploadDisabled}
-                                oniMessageDBProcess={this.oniMessageDBProcess} />
-                        } />
+                <Grid container justify="center" alignItems="flex-start" spacing={2} xs={12} lg={11} style={dimOnTrue(!isMacOs)}>
+
+                    <Grid item sm={5} xs={11}>
+                        <ContentBox title="Step 1: Upload iMessages">
+                            <Upload oniMessageDBProcess={this.oniMessageDBProcess} />
+                        </ContentBox>
                     </Grid>
-                    <Grid item sm={6} xs={11}
-                        style={dimOnTrue(trainDisabled)}>
-                        <ContentBox title="Train Models" content={
-                            <Train disabled={trainDisabled}
-                                iMessageDB={iMessageDB}
+                    <Grid item sm={6} xs={11}>
+                        <ContentBox title="Step 2: Train Models">
+                            <Train iMessageDB={iMessageDB}
                                 handles={handles}
                                 selectedHandleID={selectedHandleID}
                                 onHandleSelect={this.onHandleSelect}
                                 onModelTrain={this.onModelTrain} />
-                        } />
+                        </ContentBox>
                     </Grid>
-                    <Grid item xs={11}
-                        style={dimOnTrue(generateDisabled)}>
-                        <ContentBox title="Generate Text" content={
-                            <Generate disabled={generateDisabled}
-                                selectedHandle={handles[selectedHandleID]} />
-                        } />
+                    <Grid item xs={11}>
+                        <ContentBox title="Step 3: Generate Text">
+                            <Generate selectedHandle={handles && selectedHandleID ? handles[selectedHandleID] : null} />
+                        </ContentBox>
                     </Grid>
                 </Grid>
             </Grid>

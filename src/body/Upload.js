@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import initSqlJs from "sql.js";
-import { dimOnTrue, disableOnTrue } from '../utils/utils';
+import { dimOnTrue, buttonDisableStyleOnTrue } from '../utils/utils';
 import LabelledLoadingCircle from '../shared/LabelledLoadingCircle';
 
 class Upload extends React.Component {
@@ -44,7 +44,6 @@ class Upload extends React.Component {
     }
 
     render() {
-        const { disabled } = this.props;
         const { loading } = this.state;
 
         return <div className="relative-parent">
@@ -68,7 +67,7 @@ class Upload extends React.Component {
                     onChange={this.iMessageDBProcess}
                 />
                 <label htmlFor="upload-db">
-                    <Button variant="contained" component="span" style={disableOnTrue(disabled || loading)}
+                    <Button variant="contained" component="span" disabled={loading} style={buttonDisableStyleOnTrue(loading)}
                         startIcon={<CloudUploadIcon />}>Upload iMessage DB</Button>
                 </label>
                 <p>
@@ -76,7 +75,7 @@ class Upload extends React.Component {
                     and deletes your messages when done training a model.
                 </p>
             </div>
-        </div>;
+        </div >;
     }
 }
 

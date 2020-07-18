@@ -9,7 +9,7 @@ function ContentBox(props) {
                 marginBlockStart: '0.5em',
                 marginBlockEnd: '0.5em'
             }}><u>{props.title}</u></h3>}
-            {props.content}
+            {props.children}
         </Box>
     )
 }

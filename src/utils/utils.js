@@ -4,8 +4,8 @@ export const dimOnTrue = (flag) => {
     }
 }
 
-export const disableOnTrue = (flag) => {
+export const buttonDisableStyleOnTrue = (disabled) => {
     return {
-        pointerEvents: flag ? 'none' : 'initial'
+        backgroundColor: disabled ? 'rgb(100, 100, 100)' : '#E0E0E0'
     }
 }

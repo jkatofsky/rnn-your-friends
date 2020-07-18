@@ -1,6 +1,6 @@
 import React from 'react';
 import LabelledLoadingCircle from '../shared/LabelledLoadingCircle';
-import { dimOnTrue } from '../utils/utils';
+import { dimOnTrue, buttonDisableStyleOnTrue } from '../utils/utils';
 import postJSON from '../utils/api'
 
 class Generate extends React.Component {
