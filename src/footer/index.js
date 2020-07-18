@@ -65,17 +65,15 @@ function Footer(props) {
                                 </Grid>
                                 <Grid item sm={5} xs={12}>
                                     <p>Have suggestions? Want to make your own fork? Found a bug? Just want to judge my code? Take a look at this project's GitHub repos:</p>
+                                    <br />
                                     <GitHubButton text="Frontend" link="https://github.com/jkatofsky/rnn-your-friends" />
                                     <GitHubButton text="Backend" link="https://github.com/jkatofsky/textgenrnn-api" />
                                 </Grid>
                             </Grid>
-                            <br />
                         </ContentBox>
                     </Grid>
                 </Grid>
             </Grid>
-            <br />
-            <br />
         </footer>
     );
 }

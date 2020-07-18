@@ -6,8 +6,8 @@
 p {
     text-align: left;
     margin-block-start: 0.5em;
-    margin-block-end: 0.5em;
-    padding: 0 20px;
+    margin-block-end: 0;
+    padding: 0;
 }
 
 hr {

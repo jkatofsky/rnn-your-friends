@@ -4,7 +4,9 @@ import { dimOnTrue, buttonDisableStyleOnTrue } from '../utils/utils';
 import postJSON from '../utils/api';
 import Button from '@material-ui/core/Button';
 import TimelineIcon from '@material-ui/icons/Timeline';
-
+import Grid from '@material-ui/core/Grid';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
 class Train extends React.Component {
 
     constructor(props) {
@@ -20,7 +22,7 @@ class Train extends React.Component {
 
     modelTrain = async () => {
         this.setState({ loading: true });
-        const { selectedHandleID, iMessageDB } = this.props;
+        const { handles, selectedHandleID, iMessageDB } = this.props;
         let trainingStrings = [];
         // TODO: get the training strings
         const trainingResponse = await postJSON('train', { training_strings: trainingStrings })
@@ -29,11 +31,13 @@ class Train extends React.Component {
         this.setState({ loading: false });
     }
 
+
     render() {
         const { handles, selectedHandleID } = this.props;
         const { loading } = this.state;
 
-        const trainButtonDisabled = loading || Object.keys(handles).length === 0 || !selectedHandleID;
+        const handleSelectDisabled = loading || Object.keys(handles).length === 0;
+        const trainButtonDisabled = handleSelectDisabled || !selectedHandleID;
 
         return <div className="relative-parent">
 
@@ -42,17 +46,35 @@ class Train extends React.Component {
                     <LabelledLoadingCircle label="Training model. This may take a few minutes..." />
                 </div>}
 
-            <div style={dimOnTrue(loading)} >
-                <p>
-                    Next, select who you wish to train a network on.
-                </p>
-                {/* TODO: render two-column list of select-able handles*/}
-                <Button variant="contained"
-                    disabled={trainButtonDisabled} style={buttonDisableStyleOnTrue(trainButtonDisabled)}
-                    startIcon={<TimelineIcon />}>Train Model On Selected Person</Button>
-                <p>Unfortunately, contact names are  not included in the DB. It is reccomended to search your contacts for the desired person <i>then</i> find their number or email in this list.</p>
-            </div>
-        </div>
+            <Grid container style={dimOnTrue(loading)} >
+                <Grid item xs={3}>
+                    <p>
+                        Next, select who you wish to train a network on.
+                    </p>
+                    <p>Unfortunately, contact names are  not included in the DB. Search your contacts for a desired person then use <b>CMD + F</b> to find their number or email in this list.</p>
+                </Grid>
+                <Grid item xs={9}>
+                    <div className='handle-list'>
+                        <List component="nav" >
+                            {Object.keys(handles).map(id => (
+                                <ListItem
+                                    key={id}
+                                    button
+                                    selected={selectedHandleID === id}
+                                    onClick={() => this.handleSelect(id)}
+                                    style={selectedHandleID === id ? { backgroundColor: 'rgb(90, 90, 90)' } : null}
+                                >
+                                    {handles[id].name}{handles[id].modelID && <span>&nbsp;<b>(model already trained)</b></span>}
+                                </ListItem>
+                            ))}
+                        </List>
+                    </div>
+                    <Button variant="contained"
+                        disabled={trainButtonDisabled} style={buttonDisableStyleOnTrue(trainButtonDisabled)}
+                        startIcon={<TimelineIcon />}>Train Model On Selection</Button>
+                </Grid>
+            </Grid>
+        </div >
     }
 
 }

@@ -6,7 +6,6 @@ function LabelledLoadingCircle(props) {
         <CircularProgress size={80} color="rgb(222, 222, 222)" />
         {props.label && <h3>{props.label}</h3>}
     </div >
-
 }
 
 export default LabelledLoadingCircle;

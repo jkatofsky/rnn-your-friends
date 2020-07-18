@@ -50,12 +50,12 @@ class Body extends React.Component {
 
                 <Grid container justify="center" alignItems="flex-start" spacing={2} xs={12} lg={11} style={dimOnTrue(!isMacOs)}>
 
-                    <Grid item sm={5} xs={11}>
+                    <Grid item sm={4} xs={11}>
                         <ContentBox title="Step 1: Upload iMessages">
                             <Upload oniMessageDBProcess={this.oniMessageDBProcess} />
                         </ContentBox>
                     </Grid>
-                    <Grid item sm={6} xs={11}>
+                    <Grid item sm={7} xs={11}>
                         <ContentBox title="Step 2: Train Models">
                             <Train iMessageDB={iMessageDB}
                                 handles={handles}

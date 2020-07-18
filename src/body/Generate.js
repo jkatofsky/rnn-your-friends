@@ -27,7 +27,7 @@ class Generate extends React.Component {
 
     render() {
 
-        const { disabled, handle } = this.props;
+        const { handle } = this.props;
         const { loading, output } = this.state;
 
         //TODO: render component

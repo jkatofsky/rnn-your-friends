@@ -6,3 +6,11 @@ p {
 .incompatible-title {
     margin-block-start: 0.2em;
 }
+
+.handle-list {
+    margin: 20px;
+    height: 200px;
+    overflow: auto;
+    background-color: rgb(60, 60, 60);
+    border-radius: 20px;
+}

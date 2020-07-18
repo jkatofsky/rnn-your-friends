@@ -59,6 +59,7 @@ class Upload extends React.Component {
                 It is found at <b>User &gt; Library &gt; Messages &gt; chat.db</b>.
                 Messages that are being stored on iCloud can't be accessed.
                 </p>
+                <br />
                 <input
                     accept=".db"
                     style={{ display: 'none' }}
