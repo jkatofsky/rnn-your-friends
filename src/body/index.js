@@ -70,7 +70,7 @@ class Body extends React.Component {
                     </Grid>
                     <Grid item xs={11}>
                         <ContentBox>
-                            <Generate selectedHandle={handles && selectedHandleID ? handles[selectedHandleID] : null} />
+                            <Generate handle={(handles && selectedHandleID) ? handles[selectedHandleID] : null} />
                         </ContentBox>
                     </Grid>
                 </Grid>

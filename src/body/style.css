@@ -20,3 +20,88 @@ h3 {
     background-color: rgb(60, 60, 60);
     border-radius: 20px;
 }
+
+.message-bubble {
+    margin-bottom: 30px;
+    padding: 8px;
+    display: inline-block;
+    position: relative;
+    width: 80%;
+    height: auto;
+    min-height: 20px;
+}
+
+.message-bubble.prompt {
+    background-color: #0679f1;
+}
+
+.message-bubble.output {
+    background-color: #545454;
+}
+
+.round {
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+}
+
+.tri-right.btm-right-in:after {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: auto;
+    right: 38px;
+    bottom: -20px;
+    border: 12px solid;
+}
+
+.tri-right.btm-left-in:before {
+    content: ' ';
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 30px;
+    right: auto;
+    top: auto;
+    bottom: -20px;
+    border: 12px solid;
+}
+
+
+.tri-right.prompt.btm-right-in:after {
+    border-color: #0679f1 #0679f1 transparent transparent;
+}
+
+.tri-right.output.btm-left-in:before {
+    border-color: #545454 transparent transparent #545454;
+}
+
+.message-text {
+    color: white;
+}
+
+.message-text p {
+    margin-block-start: 0;
+}
+
+.message-text p textarea {
+    resize: none;
+    border: none;
+    display: flex;
+    width: 90%;
+    font-family: inherit;
+    color: white;
+    background-color: inherit;
+    font-size: inherit;
+    padding: none;
+}
+
+.message-text p textarea::placeholder {
+    color: white;
+    opacity: 50%;
+}
+
+.message-text.prompt p {
+    padding-left: 20px;
+}

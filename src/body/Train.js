@@ -7,6 +7,8 @@ import TimelineIcon from '@material-ui/icons/Timeline';
 import Grid from '@material-ui/core/Grid';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
+import Divider from '@material-ui/core/Divider';
+
 
 class Train extends React.Component {
 
@@ -46,7 +48,8 @@ class Train extends React.Component {
         const { handles, selectedHandleID } = this.props;
         const { loading } = this.state;
 
-        const handleSelectDisabled = loading || Object.keys(handles).length === 0;
+        const noHandles = Object.keys(handles).length === 0;
+        const handleSelectDisabled = loading || noHandles;
         const trainButtonDisabled = handleSelectDisabled || !selectedHandleID;
 
         return <div className="relative-parent">
@@ -56,9 +59,11 @@ class Train extends React.Component {
                     <LabelledLoadingCircle label="Training model. This may take a few minutes..." />
                 </div>}
 
+
+
             <div style={dimOnTrue(loading)}>
                 <h3 ><u>Step 2: Train Models</u></h3>
-                <Grid container >
+                <Grid container alignItems="center">
                     <Grid item xs={3}>
                         <p>
                             Next, select who you wish to train a network on.
@@ -66,18 +71,28 @@ class Train extends React.Component {
                         <p>Unfortunately, contact names are  not included in the DB. Search your contacts for a desired person then use <b>CMD + F</b> to find their number or email in this list.</p>
                     </Grid>
                     <Grid item xs={9}>
-                        <div className='handle-list'>
+
+
+                        <div className='handle-list relative-parent'>
+
+                            {noHandles &&
+                                <small className="absolute-child">Nobody to display yet.</small>}
+
                             <List component="nav" >
                                 {Object.keys(handles).map(id => (
-                                    <ListItem
-                                        key={id}
-                                        button
-                                        selected={selectedHandleID === id}
-                                        onClick={() => this.handleSelect(id)}
-                                        style={selectedHandleID === id ? { backgroundColor: 'rgb(90, 90, 90)' } : null}
-                                    >
-                                        {handles[id].name}{handles[id].modelID && <span>&nbsp;<b>(trained)</b></span>}
-                                    </ListItem>
+                                    <>
+                                        <ListItem
+                                            disabled={handleSelectDisabled}
+                                            key={id}
+                                            button
+                                            selected={selectedHandleID === id}
+                                            onClick={() => this.handleSelect(id)}
+                                            style={selectedHandleID === id ? { backgroundColor: 'rgb(90, 90, 90)' } : null}
+                                        >
+                                            {handles[id].name}{handles[id].modelID && <span>&nbsp;<b>(trained)</b></span>}
+                                        </ListItem>
+                                        <Divider />
+                                    </>
                                 ))}
                             </List>
                         </div>
