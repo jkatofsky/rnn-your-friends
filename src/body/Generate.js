@@ -14,7 +14,7 @@ class Generate extends React.Component {
         super(props);
         this.state = {
             loading: false,
-            temperature: 0.4,
+            temperature: null,
             output: ''
         }
     }
@@ -40,7 +40,7 @@ class Generate extends React.Component {
     render() {
 
         const { handle } = this.props;
-        const { loading, output, temperature } = this.state;
+        const { loading, output } = this.state;
 
         const generateInputDisabled = !handle || !handle.modelID || loading;
 
@@ -60,14 +60,14 @@ class Generate extends React.Component {
                         <p>The <b>temperature</b> slider dictates how much "risk" the RNN will take when generating. Anything over 0.7 gets pretty crazy.</p>
                     </Grid>
                     <Grid item xs={8} style={{ padding: '20px 30px 0 30px' }}>
-                        <Grid container justify="flex-end">
+                        <Grid container justify="flex-end" style={dimOnTrue(generateInputDisabled)}>
                             <div className="message-bubble prompt tri-right round btm-right-in">
                                 <div className="message-text prompt">
                                     <p className="message-p"><textarea wrap="soft" rows={1} disabled={generateInputDisabled} id="prompt" placeholder="Enter prompt..." maxLength={15} /></p>
                                 </div>
                             </div>
                         </Grid>
-                        <Grid container justify="flex-start">
+                        <Grid container justify="flex-start" style={dimOnTrue(generateInputDisabled)}>
                             <div className="message-bubble output tri-right round btm-left-in">
                                 <div className="message-text">
                                     <p className="message-p">{output}</p>
@@ -75,14 +75,15 @@ class Generate extends React.Component {
                             </div>
                         </Grid>
                         <Grid container justify="center">
-                            <div>
+                            <div style={dimOnTrue(generateInputDisabled)}>
                                 <p style={{ fontSize: '14px' }}>Temperature (0-1)</p>
-                                <Slider disabled={generateInputDisabled} onChange={(_, value) => this.setState({ temperature: value })}
-                                    style={{ color: 'rgb(150, 150, 150)', width: '250px', marginRight: '30px' }} id="temperature" defaultValue={temperature} valueLabelDisplay="auto" step={0.1} marks min={0} max={1}
+                                <Slider disabled={generateInputDisabled}
+                                    onChange={(_, value) => this.setState({ temperature: value })}
+                                    style={{ color: 'rgb(150, 150, 150)', width: '250px', marginRight: '30px' }} id="temperature" defaultValue={0.4} valueLabelDisplay="auto" step={0.1} marks min={0} max={1}
                                 />
                             </div>
                             <br />
-                            <Button variant="contained" onClick={() => this.textGenerate()}
+                            <Button variant="contained" className="button" onClick={() => this.textGenerate()}
                                 disabled={generateInputDisabled} style={buttonDisableStyleOnTrue(generateInputDisabled)}
                                 startIcon={<ChatIcon />}>Generate Text</Button>
                         </Grid>

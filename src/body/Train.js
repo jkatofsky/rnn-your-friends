@@ -71,30 +71,32 @@ class Train extends React.Component {
                     <Grid item xs={9}>
 
 
-                        <div className='handle-list relative-parent'>
+                        <div className='handle-list relative-parent' style={dimOnTrue(noHandles)}>
 
                             {noHandles &&
                                 <small className="absolute-child">Nobody to display yet.</small>}
 
                             <List component="nav" >
                                 {Object.keys(handles).map(id => (
-                                    <>
+                                    <div key={id}>
                                         <ListItem
                                             disabled={handleSelectDisabled}
-                                            key={id}
+
                                             button
                                             selected={selectedHandleID === id}
                                             onClick={() => this.handleSelect(id)}
                                             style={selectedHandleID === id ? { backgroundColor: 'rgb(90, 90, 90)' } : null}
                                         >
                                             {handles[id].name}{handles[id].modelID && <span>&nbsp;<b>(trained)</b></span>}
+
                                         </ListItem>
+
                                         <Divider />
-                                    </>
+                                    </div>
                                 ))}
                             </List>
                         </div>
-                        <Button variant="contained" onClick={() => this.modelTrain()}
+                        <Button variant="contained" className="button" onClick={() => this.modelTrain()}
                             disabled={trainButtonDisabled} style={buttonDisableStyleOnTrue(trainButtonDisabled)}
                             startIcon={<TimelineIcon />}>Train Model On Selection</Button>
                     </Grid>
