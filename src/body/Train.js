@@ -1,6 +1,6 @@
 import React from 'react';
 import LabelledLoadingCircle from '../shared/LabelledLoadingCircle';
-import { dimOnTrue, buttonDisableStyleOnTrue } from '../utils/utils';
+import { disableOnTrue, buttonDisableStyleOnTrue } from '../utils/utils';
 import postJSON from '../utils/api';
 import Button from '@material-ui/core/Button';
 import TimelineIcon from '@material-ui/icons/Timeline';
@@ -59,7 +59,7 @@ class Train extends React.Component {
                     <LabelledLoadingCircle label="Training model. This may take a few minutes. I couldn't afford a virtual machine with a GPU." />
                 </div>}
 
-            <div style={dimOnTrue(loading)}>
+            <div style={disableOnTrue(loading)}>
                 <h3 ><u>Step 2: Train Models</u></h3>
                 <Grid container alignItems="center">
                     <Grid item xs={3}>
@@ -71,7 +71,7 @@ class Train extends React.Component {
                     <Grid item xs={9}>
 
 
-                        <div className='handle-list relative-parent' style={dimOnTrue(noHandles)}>
+                        <div className='handle-list relative-parent' style={disableOnTrue(noHandles)}>
 
                             {noHandles &&
                                 <small className="absolute-child">Nobody to display yet.</small>}

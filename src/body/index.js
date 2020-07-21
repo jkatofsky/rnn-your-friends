@@ -7,7 +7,7 @@ import ErrorIcon from '@material-ui/icons/Error';
 import Upload from './Upload';
 import Train from './Train';
 import Generate from './Generate';
-import { dimOnTrue } from '../utils/utils';
+import { disableOnTrue } from '../utils/utils';
 
 class Body extends React.Component {
 
@@ -52,7 +52,7 @@ class Body extends React.Component {
                     <ErrorIcon fontSize="large" /><h2 className="error-title">You don't appear to be on macOS. Return to this website from a Mac to use it.</h2>
                 </div>}
 
-                <Grid container justify="center" alignItems="flex-start" spacing={2} xs={12} lg={11} style={dimOnTrue(!isMacOs)}>
+                <Grid container justify="center" alignItems="flex-start" spacing={2} xs={12} lg={11} style={disableOnTrue(!isMacOs)}>
 
                     <Grid item sm={4} xs={11}>
                         <ContentBox>

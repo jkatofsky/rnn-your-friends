@@ -1,6 +1,6 @@
 import React from 'react';
 import LabelledLoadingCircle from '../shared/LabelledLoadingCircle';
-import { dimOnTrue, buttonDisableStyleOnTrue } from '../utils/utils';
+import { disableOnTrue, buttonDisableStyleOnTrue } from '../utils/utils';
 import postJSON from '../utils/api';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
@@ -51,7 +51,7 @@ class Generate extends React.Component {
                     <LabelledLoadingCircle label='Generating text...' />
                 </div>}
 
-            <div style={dimOnTrue(loading)} >
+            <div style={disableOnTrue(loading)} >
                 <h3 ><u>Step 3: Generate Text</u></h3>
                 <Grid container alignItems="center">
                     <Grid item xs={4}>
@@ -60,14 +60,14 @@ class Generate extends React.Component {
                         <p>The <b>temperature</b> slider dictates how much "risk" the RNN will take when generating. Anything over 0.7 gets pretty crazy.</p>
                     </Grid>
                     <Grid item xs={8} style={{ padding: '20px 30px 0 30px' }}>
-                        <Grid container justify="flex-end" style={dimOnTrue(generateInputDisabled)}>
+                        <Grid container justify="flex-end" style={disableOnTrue(generateInputDisabled)}>
                             <div className="message-bubble prompt tri-right round btm-right-in">
                                 <div className="message-text prompt">
                                     <p className="message-p"><textarea wrap="soft" rows={1} disabled={generateInputDisabled} id="prompt" placeholder="Enter prompt..." maxLength={15} /></p>
                                 </div>
                             </div>
                         </Grid>
-                        <Grid container justify="flex-start" style={dimOnTrue(generateInputDisabled)}>
+                        <Grid container justify="flex-start" style={disableOnTrue(generateInputDisabled)}>
                             <div className="message-bubble output tri-right round btm-left-in">
                                 <div className="message-text">
                                     <p className="message-p">{output}</p>
@@ -75,7 +75,7 @@ class Generate extends React.Component {
                             </div>
                         </Grid>
                         <Grid container justify="center">
-                            <div style={dimOnTrue(generateInputDisabled)}>
+                            <div style={disableOnTrue(generateInputDisabled)}>
                                 <p style={{ fontSize: '14px' }}>Temperature (0-1)</p>
                                 <Slider disabled={generateInputDisabled}
                                     onChange={(_, value) => this.setState({ temperature: value })}

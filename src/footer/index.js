@@ -44,10 +44,11 @@ function Footer(props) {
                     <Grid item sm={7} xs={11}>
                         <ContentBox>
                             <h4 ><u>About The Website</u></h4>
-                            <p>This website does not use GPT - a shame, as GPT provides <a href="https://openai.com/blog/better-language-models/#sample1" target="_blank" rel="noopener noreferrer">incredibly coherent output</a>.
-                        Alas, GPT is <i>huge</i> and training it takes hours on beefy GPUs, much less using the starter tier of Google App Engine.</p>
-                            <p>RNN Your Friends' frontend parses your iMessage databse and randomly selects messages from your selected person. It then sends this to the backend, which trains a new model on these messages. It does a few quick training epochs on a <a href="https://en.wikipedia.org/wiki/Recurrent_neural_network" target="_blank" rel="noopener noreferrer">recurrent neural network</a>, hence the site's name. This model is then retained for a period of time, where this front-end queries it for text.
-                        The output you get won't make it in any NLP papers, but it's still lots of fun.</p>
+                            <p>This website does not use a cutting-edge model like GPT-2 - a shame, as GPT-2 provides <a href="https://openai.com/blog/better-language-models/#sample1" target="_blank" rel="noopener noreferrer">incredibly coherent output</a>.
+                            Alas, GPT is <i>huge</i> and training it takes hours on beefy GPUs, much less using the starter tier of Google App Engine.</p>
+                            <p>RNN Your Friends' frontend parses your iMessage database and randomly selects messages from the selected person. It then sends the text of these messages to the backend, which trains a model with them;
+                            it does a few quick training epochs on a <a href="https://en.wikipedia.org/wiki/Recurrent_neural_network" target="_blank" rel="noopener noreferrer">recurrent neural network</a>, hence the site's name. This model is then retained for a period of time, when this front-end can request generated text from it.
+                            The output won't make it into any NLP papers, but it's still lots of fun.</p>
                             <p>Here's a list of the main technologies I'm using:</p>
                             <ul>
                                 <li><a href="https://reactjs.org/" target="_blank" rel="noopener noreferrer">React.js</a> (front-end framework)</li>
