@@ -81,7 +81,6 @@ class Train extends React.Component {
                                     <div key={id}>
                                         <ListItem
                                             disabled={handleSelectDisabled}
-
                                             button
                                             selected={selectedHandleID === id}
                                             onClick={() => this.handleSelect(id)}

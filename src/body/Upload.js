@@ -44,7 +44,10 @@ class Upload extends React.Component {
     }
 
     render() {
+        const { enabled } = this.props;
         const { loading } = this.state;
+
+        const uploadButtonDisabled = !enabled || loading;
 
         return <div className="relative-parent">
 
@@ -69,7 +72,8 @@ class Upload extends React.Component {
                     onChange={this.iMessageDBProcess}
                 />
                 <label htmlFor="upload-db">
-                    <Button variant="contained" className="button" component="span" disabled={loading} style={buttonDisableStyleOnTrue(loading)}
+                    <Button variant="contained" className="button" component="span"
+                        disabled={uploadButtonDisabled} style={buttonDisableStyleOnTrue(uploadButtonDisabled)}
                         startIcon={<CloudUploadIcon />}>Upload iMessage DB</Button>
                 </label>
                 <p>

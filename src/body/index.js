@@ -56,7 +56,8 @@ class Body extends React.Component {
 
                     <Grid item sm={4} xs={11}>
                         <ContentBox>
-                            <Upload oniMessageDBProcess={this.oniMessageDBProcess} />
+                            <Upload enabled={isMacOs}
+                                oniMessageDBProcess={this.oniMessageDBProcess} />
                         </ContentBox>
                     </Grid>
                     <Grid item sm={7} xs={11}>
