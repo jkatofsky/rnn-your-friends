@@ -46,7 +46,7 @@ class Body extends React.Component {
         const { iMessageDB, handles, selectedHandleID } = this.state;
 
         return <>
-            <Grid container justify="center" alignItems="flex-start" xs={12}>
+            <Grid container className="relative-parent" justify="center" alignItems="flex-start" xs={12}>
 
                 {!isMacOs && <div className="absolute-child">
                     <ErrorIcon fontSize="large" /><h2 className="error-title">You don't appear to be on macOS. Return to this website from a Mac to use it.</h2>
