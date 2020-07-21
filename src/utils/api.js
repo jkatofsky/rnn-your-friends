@@ -2,7 +2,7 @@ let API_URL;
 if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
     API_URL = "http://localhost:8000";
 } else {
-    API_URL = ""; //TODO: get the prod API URL
+    API_URL = "http://textgenrnn-api.appspot.com";
 }
 
 
