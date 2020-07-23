@@ -45,7 +45,7 @@ function Footer(props) {
                         <ContentBox>
                             <h4 ><u>About The Website</u></h4>
                             <p>This website does not use a cutting-edge model like GPT-2 - a shame, as GPT-2 provides <a href="https://openai.com/blog/better-language-models/#sample1" target="_blank" rel="noopener noreferrer">incredibly coherent output</a>.
-                            Alas, GPT is <i>huge</i> and training it takes hours on beefy GPUs, much less using the starter tier of Google App Engine.</p>
+                            Alas, GPT is <i>huge</i> and training it takes hours on beefy GPUs, much less using Google App Engine.</p>
                             <p>RNN Your Friends' frontend parses your iMessage database and randomly selects messages from the selected person. It then sends the text of these messages to the backend, which trains a model with them;
                             it does a few quick training epochs on a <a href="https://en.wikipedia.org/wiki/Recurrent_neural_network" target="_blank" rel="noopener noreferrer">recurrent neural network</a>, hence the site's name. This model is then retained for a period of time, when this front-end can request generated text from it.
                             The output won't make it into any NLP papers, but it's still lots of fun.</p>
@@ -56,7 +56,7 @@ function Footer(props) {
                                 <li><a href="https://github.com/sql-js/sql.js" target="_blank" rel="noopener noreferrer">sql.js</a> (browser-side DB interpreter)</li>
                                 <li><a href="https://github.com/huge-success/sanic" target="_blank" rel="noopener noreferrer">Sanic</a> (web server)</li>
                                 <li><a href="https://github.com/minimaxir/textgenrnn" target="_blank" rel="noopener noreferrer">textgenrnn</a> (text generation)</li>
-                                <li><a href="https://cloud.google.com/appengine" target="_blank" rel="noopener noreferrer">Google App Engine</a> (hosting)</li>
+                                <li><a href="https://cloud.google.com/" target="_blank" rel="noopener noreferrer">Google Cloud</a> (App Engine &amp; Cloud Storage)</li>
                             </ul>
                             <p>Have suggestions? Want to make your own fork? Found a bug? Just want to judge my code? Take a look at this project's GitHub repos:</p>
                             <br />
