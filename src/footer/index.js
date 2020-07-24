@@ -54,7 +54,7 @@ function Footer(props) {
                                 <li><a href="https://reactjs.org/" target="_blank" rel="noopener noreferrer">React.js</a> (front-end framework)</li>
                                 <li><a href="https://material-ui.com/" target="_blank" rel="noopener noreferrer">Material-UI</a> (front-end components)</li>
                                 <li><a href="https://github.com/sql-js/sql.js" target="_blank" rel="noopener noreferrer">sql.js</a> (browser-side DB interpreter)</li>
-                                <li><a href="https://github.com/huge-success/sanic" target="_blank" rel="noopener noreferrer">Sanic</a> (web server)</li>
+                                <li><a href="https://github.com/pallets/flask" target="_blank" rel="noopener noreferrer">Flask</a> (web framework)</li>
                                 <li><a href="https://github.com/minimaxir/textgenrnn" target="_blank" rel="noopener noreferrer">textgenrnn</a> (text generation)</li>
                                 <li><a href="https://cloud.google.com/" target="_blank" rel="noopener noreferrer">Google Cloud</a> (App Engine &amp; Cloud Storage)</li>
                             </ul>
