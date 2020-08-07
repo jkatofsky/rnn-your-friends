@@ -109,3 +109,7 @@ h3 {
 .message-text.prompt p {
     padding-left: 20px;
 }
+
+.incompatible-title {
+    top: 10%;
+}

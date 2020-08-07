@@ -48,8 +48,8 @@ class Body extends React.Component {
         return <>
             <Grid container className="relative-parent" justify="center" alignItems="flex-start" xs={12}>
 
-                {!isMacOs && <div className="absolute-child">
-                    <ErrorIcon fontSize="large" /><h2 className="error-title">You don't appear to be on macOS. Return to this website from a Mac to use it.</h2>
+                {!isMacOs && <div className="absolute-child incompatible-title">
+                    <ErrorIcon fontSize="large" /><h2>You don't appear to be on macOS. Return to this website from a Mac to use it.</h2>
                 </div>}
 
                 <Grid container justify="center" alignItems="flex-start" spacing={2} xs={12} lg={11} style={disableOnTrue(!isMacOs)}>
