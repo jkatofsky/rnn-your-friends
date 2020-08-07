@@ -23,16 +23,15 @@ class Generate extends React.Component {
         this.setState({ loading: true });
         const { handle } = this.props;
         const { temperature } = this.state;
-        let options = {};
         const prompt = document.getElementById('prompt').value;
-        if (prompt) options['prompt'] = prompt + " ";
-        options['temperature'] = temperature;
-        //TODO: remove when done testing
-        console.log(options);
-        const generateResponse = await postJSON('generate', {
+
+        const postBody = {
             model_id: handle.modelID,
-            options: options
-        });
+        }
+        if (prompt) postBody['prompt'] = prompt + " ";
+        if (temperature) postBody['temperature'] = temperature;
+
+        const generateResponse = await postJSON('generate', postBody);
         const output = !prompt ? generateResponse['output'] : generateResponse['output'].slice(prompt.length);
         this.setState({ loading: false, output: output });
     }
