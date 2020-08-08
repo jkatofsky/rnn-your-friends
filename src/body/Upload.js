@@ -78,7 +78,7 @@ class Upload extends React.Component {
                         startIcon={<CloudUploadIcon />}>Upload iMessage DB</Button>
                 </label>
                 <p>
-                    RNN Your Friends doesn't send any sensetive metadata to the server
+                    RNN Your Friends doesn't send any sensitive metadata to the server
                     and doesn't hold on to your messages.
                 </p>
             </div>
