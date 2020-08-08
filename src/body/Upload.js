@@ -61,6 +61,7 @@ class Upload extends React.Component {
                 <p>
                     First, you have to upload your Mac's local iMessage database.
                 It is found at <b>User &gt; Library &gt; Messages &gt; chat.db</b>.
+                You may have to <a href="https://osxdaily.com/2020/04/23/always-show-user-library-folder-macos-catalina/" target="_blank" rel="noopener noreferrer">manually make the Library folder visible</a>.
                 Messages that are being stored on iCloud can't be accessed.
                 </p>
                 <br />
@@ -78,7 +79,7 @@ class Upload extends React.Component {
                 </label>
                 <p>
                     RNN Your Friends doesn't send any sensetive metadata to the server
-                    and deletes your messages when done training a model.
+                    and doesn't hold on to your messages.
                 </p>
             </div>
         </div >;
