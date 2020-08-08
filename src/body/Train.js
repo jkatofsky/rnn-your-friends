@@ -62,13 +62,13 @@ class Train extends React.Component {
             <div style={disableOnTrue(loading)}>
                 <h3 ><u>Step 2: Train Models</u></h3>
                 <Grid container alignItems="center">
-                    <Grid item xs={3}>
+                    <Grid item sm={3} xs={12}>
                         <p>
                             Next, select who you wish to train a network on.
                     </p>
                         <p>Unfortunately, contact names are  not included in the DB. Search your contacts for a desired person then use <b>CMD + F</b> to find their number or email in this list.</p>
                     </Grid>
-                    <Grid item xs={9}>
+                    <Grid item sm={9} xs={12}>
 
 
                         <div className='handle-list relative-parent' style={disableOnTrue(noHandles)}>

@@ -53,12 +53,12 @@ class Generate extends React.Component {
             <div style={disableOnTrue(loading)} >
                 <h3 ><u>Step 3: Generate Text</u></h3>
                 <Grid container alignItems="center">
-                    <Grid item xs={4}>
+                    <Grid item sm={4} xs={12}>
                         <p>Finally, you can generate text from the model.</p>
                         <p>You can optionally provide a (very short) <b>prompt</b> for the output. Be warned: the dataset is small, so sometimes the model won't know how to respond.</p>
                         <p>The <b>temperature</b> slider dictates how much "risk" the RNN will take when generating. Anything over 0.7 gets pretty crazy.</p>
                     </Grid>
-                    <Grid item xs={8} style={{ padding: '20px 30px 0 30px' }}>
+                    <Grid item sm={8} xs={12} style={{ padding: '20px 30px 0 30px' }}>
                         <Grid container justify="flex-end" style={disableOnTrue(generateInputDisabled)}>
                             <div className="message-bubble prompt tri-right round btm-right-in">
                                 <div className="message-text prompt">

@@ -2,7 +2,7 @@ let API_URL;
 if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
     API_URL = "http://localhost:5000";
 } else {
-    API_URL = "http://textgenrnn-api.appspot.com";
+    API_URL = "https://textgenrnn-api.appspot.com";
 }
 
 
