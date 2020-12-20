@@ -56,7 +56,7 @@ class Train extends React.Component {
 
             {loading &&
                 <div className="absolute-child">
-                    <LabelledLoadingCircle label="Training model. This may take a few minutes. I couldn't afford a virtual machine with a GPU." />
+                    <LabelledLoadingCircle label="Training model. This will take a few minutes. I couldn't afford a virtual machine with a GPU." />
                 </div>}
 
             <div style={disableOnTrue(loading)}>
