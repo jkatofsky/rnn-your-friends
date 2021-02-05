@@ -1,5 +1,7 @@
 # rnn-your-friends
 
+Train a text model on your iMessages. Talks to my [textgenrnn API](https://github.com/jkatofsky/textgenrnn-api).
+
 ## TODOs
 
 - [ ] Make a proper README.
